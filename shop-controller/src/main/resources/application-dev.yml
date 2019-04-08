@@ -1,0 +1,12 @@
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    database: 1
+
+dubbo:
+  registry:
+    address: 127.0.0.1
+    group: shop
+
+

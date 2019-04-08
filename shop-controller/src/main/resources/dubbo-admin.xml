@@ -1,0 +1,11 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:dubb="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="shop-customer"/>
+    <dubbo:registry address="${dubbo.registry.address}" group="${dubbo.registry.group}"/>
+
+    <dubbo:reference interface="com.corn.shop.facade.user.UserFacade" version="0.0.1" id="userFacade"></dubbo:reference>
+</beans>
