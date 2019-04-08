@@ -11,5 +11,15 @@
 
     <artifactId>shop-integration</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.corn.shop</groupId>
+            <artifactId>shop-facade</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+
+    </dependencies>
 
 </project>
