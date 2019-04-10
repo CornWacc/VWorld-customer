@@ -6,7 +6,8 @@ spring:
 
 dubbo:
   registry:
-    address: 127.0.0.1
+    address: zookeeper://127.0.0.1:2181
     group: shop
-
+  protocol:
+    port: 28080
 
