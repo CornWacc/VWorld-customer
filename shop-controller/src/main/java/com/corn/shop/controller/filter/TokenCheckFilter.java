@@ -34,7 +34,7 @@ public class TokenCheckFilter implements Filter {
 
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-
+        filterChain.doFilter(request,response);
 
     }
 

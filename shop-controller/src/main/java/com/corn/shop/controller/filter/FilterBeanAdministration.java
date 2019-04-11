@@ -23,15 +23,15 @@ public class FilterBeanAdministration {
         return filterRegistrationBean;
 
     }
-
-    @Bean("tokenCheckFilter")
-    public FilterRegistrationBean<TokenCheckFilter> createTokenCheckFilter(){
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-        filterRegistrationBean.setOrder(2);
-        filterRegistrationBean.addUrlPatterns("/*");
-        filterRegistrationBean.setFilter(new TokenCheckFilter());
-        return filterRegistrationBean;
-    }
+//
+//    @Bean("tokenCheckFilter")
+//    public FilterRegistrationBean<TokenCheckFilter> createTokenCheckFilter(){
+//        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+//        filterRegistrationBean.setOrder(2);
+//        filterRegistrationBean.addUrlPatterns("/*");
+//        filterRegistrationBean.setFilter(new TokenCheckFilter());
+//        return filterRegistrationBean;
+//    }
 
 }
 
