@@ -3,25 +3,21 @@ package com.corn.shop.controller.user;
 
 import com.corn.boot.base.JsonResult;
 import com.corn.boot.util.AppUtils;
+import com.corn.shop.controller.user.ao.UserInfoQueryAO;
 import com.corn.shop.controller.user.ao.UserLoginAO;
 import com.corn.shop.controller.user.ao.UserRegAO;
-import com.corn.shop.facade.user.UserLoginOrder;
-import com.corn.shop.facade.user.UserLoginResult;
-import com.corn.shop.facade.user.UserRegOrder;
-import com.corn.shop.facade.user.UserRegResult;
+import com.corn.shop.facade.user.*;
 import com.corn.shop.integration.user.UserFacadeClient;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.spring.web.json.Json;
+import org.springframework.web.bind.annotation.*;
 
 
 @RequestMapping(value = "/user")
 @RestController
+@Api(description = "用户操作")
 public class UserController {
 
     @Autowired
@@ -52,6 +48,18 @@ public class UserController {
         UserRegResult regResult = userFacadeClient.userReg(order);
         return new JsonResult(regResult);
 
+    }
+
+    @GetMapping("/userInfoQuery")
+    @ApiOperation(value = "用户基础信息查询",notes = "用户基础信息查询接口")
+    public JsonResult userInfoQuery(UserInfoQueryAO ao){
+
+        UserInfoQueryOrder order = new UserInfoQueryOrder();
+        order.setUserId(ao.getUserId());
+        order.setSerialNo(AppUtils.appCode("userInfoQuery"));
+
+        UserInfoQueryResult result = userFacadeClient.userInfoQuery(order);
+        return new JsonResult(result);
     }
 
 }

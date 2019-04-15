@@ -43,4 +43,11 @@ public class UserFacadeClientImpl implements UserFacadeClient {
         log.info("业务[用户忘记密码],出参:{}",result);
         return result;
     }
+
+    @Override
+    public UserInfoQueryResult userInfoQuery(UserInfoQueryOrder order) {
+        log.info("业务[用户基础信息查询],入参:{}",order);
+        UserInfoQueryResult result = userFacade.userInfoQuery(order);
+        log.info("业务[用户基础信息查询],出参:{}",result);
+        return result;    }
 }
