@@ -1,7 +1,7 @@
-package com.corn.shop.integration.user;
+package com.corn.vworld.integration.user;
 
 
-import com.corn.shop.facade.user.*;
+import com.corn.vworld.facade.user.*;
 
 /**
  * @author yyc

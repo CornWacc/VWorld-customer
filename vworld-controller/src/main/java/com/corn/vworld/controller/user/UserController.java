@@ -1,14 +1,14 @@
-package com.corn.shop.controller.user;
+package com.corn.vworld.controller.user;
 
 
 import com.corn.boot.base.JsonResult;
 import com.corn.boot.util.AppUtils;
-import com.corn.shop.controller.user.ao.UserInfoQueryAO;
-import com.corn.shop.controller.user.ao.UserLoginAO;
-import com.corn.shop.controller.user.ao.UserRegAO;
-import com.corn.shop.facade.user.*;
-import com.corn.shop.integration.user.UserFacadeClient;
-import com.corn.shop.integration.user.UserFacadeClientImpl;
+import com.corn.vworld.controller.user.ao.UserInfoQueryAO;
+import com.corn.vworld.controller.user.ao.UserLoginAO;
+import com.corn.vworld.controller.user.ao.UserRegAO;
+import com.corn.vworld.facade.user.*;
+import com.corn.vworld.integration.user.UserFacadeClient;
+import com.corn.vworld.integration.user.UserFacadeClientImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;

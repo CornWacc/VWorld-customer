@@ -4,9 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <dubbo:application name="shop-customer"/>
+    <dubbo:application name="vworld-customer"/>
     <dubbo:registry address="${dubbo.registry.address}" group="${dubbo.registry.group}"/>
     <dubbo:consumer id="defult-consumer" default="true" timeout="200000"></dubbo:consumer>
 
-    <dubbo:reference interface="com.corn.shop.facade.user.UserFacade" version="0.0.1" id="userFacade"></dubbo:reference>
+    <dubbo:reference interface="com.corn.vworld.facade.user.UserFacade" version="0.0.1" id="userFacade"></dubbo:reference>
 </beans>

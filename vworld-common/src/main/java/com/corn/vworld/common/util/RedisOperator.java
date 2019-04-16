@@ -1,4 +1,4 @@
-package com.corn.shop.common.util;
+package com.corn.vworld.common.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

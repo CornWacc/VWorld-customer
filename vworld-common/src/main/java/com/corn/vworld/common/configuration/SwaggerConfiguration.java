@@ -1,4 +1,4 @@
-package com.corn.shop.common.configuration;
+package com.corn.vworld.common.configuration;
 
 
 import org.springframework.context.annotation.Bean;

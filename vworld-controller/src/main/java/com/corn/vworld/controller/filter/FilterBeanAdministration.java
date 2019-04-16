@@ -1,4 +1,4 @@
-package com.corn.shop.controller.filter;
+package com.corn.vworld.controller.filter;
 
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;

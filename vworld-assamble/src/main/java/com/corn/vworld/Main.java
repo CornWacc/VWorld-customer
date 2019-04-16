@@ -1,4 +1,4 @@
-package com.corn.shop;
+package com.corn.vworld;
 
 
 import com.corn.boot.annotations.Runner;

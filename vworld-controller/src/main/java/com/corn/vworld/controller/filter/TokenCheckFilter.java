@@ -1,7 +1,7 @@
-package com.corn.shop.controller.filter;
+package com.corn.vworld.controller.filter;
 
 
-import com.corn.shop.common.util.RedisOperator;
+import com.corn.vworld.common.util.RedisOperator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

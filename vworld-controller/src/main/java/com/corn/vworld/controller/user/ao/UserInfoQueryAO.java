@@ -1,4 +1,4 @@
-package com.corn.shop.controller.user.ao;
+package com.corn.vworld.controller.user.ao;
 
 import com.corn.boot.base.Base;
 

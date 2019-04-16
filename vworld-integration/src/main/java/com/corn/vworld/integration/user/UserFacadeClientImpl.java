@@ -1,6 +1,6 @@
-package com.corn.shop.integration.user;
+package com.corn.vworld.integration.user;
 
-import com.corn.shop.facade.user.*;
+import com.corn.vworld.facade.user.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
