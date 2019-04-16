@@ -1,3 +1,3 @@
-# CornShop-customer
+# vWorld-customer
 
-## 电影商城消费端
+## 微世界消费端
