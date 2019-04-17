@@ -23,7 +23,7 @@ public class SwaggerConfiguration {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.corn.shop.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.corn.vworld.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -31,8 +31,8 @@ public class SwaggerConfiguration {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("CornShop开发文档")
-                .description("简单优雅的restfun风格，http://blog.csdn.net/saytime")
-                .termsOfServiceUrl("http://blog.csdn.net/saytime")
+                .description("简单优雅的restfun风格")
+                .termsOfServiceUrl("")
                 .version("1.0")
                 .build();
     }

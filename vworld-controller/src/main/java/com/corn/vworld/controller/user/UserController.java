@@ -49,6 +49,9 @@ public class UserController {
         order.setUserAccount(userRegAO.getUserAccount());
         order.setUserName(userRegAO.getUserName());
         order.setUserPassword(userRegAO.getUserPassword());
+        order.setUserEmail(userRegAO.getUserEmail());
+        order.setUserPhone(userRegAO.getUserPhone());
+        order.setUserAvatar(userRegAO.getUserAvatar());
         UserRegResult regResult = userFacadeClient.userReg(order);
         return new JsonResult(regResult);
 

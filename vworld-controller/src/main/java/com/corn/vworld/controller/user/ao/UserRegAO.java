@@ -23,6 +23,39 @@ public class UserRegAO extends Base {
     @ApiModelProperty(value = "用户名称",name = "userName")
     private String userName;
 
+    @ApiModelProperty(value = "用户邮箱",name = "userEmail")
+    private String userEmail;
+
+    @ApiModelProperty(value = "用户手机号",name = "userPhone")
+    private String userPhone;
+
+    @ApiModelProperty(value = "用户头像",name = "userAvatar")
+    private String userAvatar;
+
+    public String getUserAvatar() {
+        return userAvatar;
+    }
+
+    public void setUserAvatar(String userAvatar) {
+        this.userAvatar = userAvatar;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getUserPhone() {
+        return userPhone;
+    }
+
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
+    }
+
     public String getUserAccount() {
         return userAccount;
     }
