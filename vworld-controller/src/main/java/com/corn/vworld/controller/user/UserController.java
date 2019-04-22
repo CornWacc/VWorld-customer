@@ -4,13 +4,11 @@ package com.corn.vworld.controller.user;
 import com.corn.boot.base.JsonResult;
 import com.corn.boot.util.AppUtils;
 import com.corn.vworld.controller.user.ao.UserInfoQueryAO;
+import com.corn.vworld.controller.user.ao.UserListPageQueryAO;
 import com.corn.vworld.controller.user.ao.UserLoginAO;
 import com.corn.vworld.controller.user.ao.UserRegAO;
-import com.corn.vworld.facade.role.RoleListQueryOrder;
 import com.corn.vworld.facade.user.*;
-import com.corn.vworld.integration.role.RoleFacadeClient;
 import com.corn.vworld.integration.user.UserFacadeClient;
-import com.corn.vworld.integration.user.UserFacadeClientImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
@@ -25,12 +23,6 @@ public class UserController {
 
     @Autowired
     private UserFacadeClient userFacadeClient;
-
-    @Autowired
-    private UserFacadeClientImpl userFacadeClientI;
-
-    @Autowired
-    private RoleFacadeClient roleFacadeClient;
 
     @PostMapping("/userLogin")
     @ApiOperation(value = "用户登录",notes = "用户登陆接口")
@@ -74,11 +66,18 @@ public class UserController {
         return new JsonResult(result);
     }
 
-    @GetMapping("/test")
-    @ApiOperation(value = "test",notes = "test")
-    public void userInfoQuery(){
-        RoleListQueryOrder order =new RoleListQueryOrder();
-        order.setSerialNo(AppUtils.appCode(""));
-        roleFacadeClient.roleListQuery(order);
+    @GetMapping("/userListPageQuery")
+    @ApiOperation(value = "用户列表分页查询",notes = "用户列表分页查询接口")
+    public JsonResult userListPageQuery(UserListPageQueryAO ao){
+
+        UserListPageQueryOrder order = new UserListPageQueryOrder();
+        order.setSerialNo(AppUtils.appCode("userListPageQuery"));
+        order.setKeyWord(ao.getKeyWord());
+        order.setType(ao.getType());
+        order.setPageNum(ao.getPageNum());
+        order.setPageSize(ao.getPageSize());
+        UserListPageQueryResult result = userFacadeClient.userListPageQuery(order);
+        return new JsonResult(result);
     }
+
 }

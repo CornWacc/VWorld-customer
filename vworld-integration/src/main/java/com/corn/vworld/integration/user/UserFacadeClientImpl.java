@@ -52,7 +52,11 @@ public class UserFacadeClientImpl implements UserFacadeClient {
         return result;
     }
 
-    public void userListQuery(){
-        userFacade.testMP();
-    }
+    @Override
+    public UserListPageQueryResult userListPageQuery(UserListPageQueryOrder order) {
+        log.info("业务[用户基础信息查询],入参:{}",order);
+        UserListPageQueryResult result = userFacade.userPageQuery(order);
+        log.info("业务[用户基础信息查询],出参:{}",result);
+        return result;    }
+
 }

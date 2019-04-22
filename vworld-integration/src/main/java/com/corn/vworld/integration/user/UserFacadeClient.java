@@ -16,4 +16,6 @@ public interface UserFacadeClient {
     UserForgetPasswordResult userForget(UserForgetPasswordOrder order);
 
     UserInfoQueryResult userInfoQuery(UserInfoQueryOrder order);
+
+    UserListPageQueryResult userListPageQuery(UserListPageQueryOrder order);
 }
