@@ -1,12 +1,19 @@
 package com.corn.vworld.integration.role;
 
-import com.corn.vworld.facade.role.RoleAddOrder;
-import com.corn.vworld.facade.role.RoleAddResult;
-import com.corn.vworld.facade.role.RoleListQueryOrder;
-import com.corn.vworld.facade.role.RoleListQueryResult;
+import com.corn.vworld.facade.role.*;
 
 public interface RoleFacadeClient {
 
+
+    /**
+     * 权限树列表查询
+     * */
+    RoleTreeListQueryResult roleTreeListQuery(RoleTreeListQueryOrder order);
+
+    /**
+     * 权限新增
+     * */
+    RoleAddResult roleAdd(RoleAddOrder order);
 
     /**
      * 权限列表查询
@@ -14,7 +21,17 @@ public interface RoleFacadeClient {
     RoleListQueryResult roleListQuery(RoleListQueryOrder order);
 
     /**
-     * 权限新增
+     * 权限删除
      * */
-    RoleAddResult roleAdd(RoleAddOrder order);
+    RoleDelResult roleDel(RoleDelOrder order);
+
+    /**
+     * 权限列表根据等级查询列表
+     * */
+    RoleListQueryByLevelResult roleListQueryByLevel(RoleListQueryByLevelOrder order);
+
+    /**
+     * 权限列表根据权限父级id查询
+     * */
+    RoleListQueryBySuperiorIdResult roleListQueryBySuperiosId(RoleListQueryBySuperiorIdOrder order);
 }

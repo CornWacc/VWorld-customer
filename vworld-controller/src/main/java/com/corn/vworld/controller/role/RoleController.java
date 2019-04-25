@@ -3,17 +3,14 @@ package com.corn.vworld.controller.role;
 import com.corn.boot.base.JsonResult;
 import com.corn.boot.util.AppUtils;
 import com.corn.vworld.controller.role.ao.RoleAddAO;
-import com.corn.vworld.facade.role.RoleAddOrder;
-import com.corn.vworld.facade.role.RoleAddResult;
+import com.corn.vworld.controller.role.ao.RoleListQueryAO;
+import com.corn.vworld.facade.role.*;
 import com.corn.vworld.integration.role.RoleFacadeClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -34,6 +31,43 @@ public class RoleController {
         BeanUtils.copyProperties(ao,order);
 
         RoleAddResult result = roleFacadeClient.roleAdd(order);
+        return new JsonResult(result);
+    }
+
+    @ApiOperation(notes = "用户权限列表查询接口",value = "用户列表查询")
+    @GetMapping("/roleListQuery")
+    public JsonResult roleListQuery(RoleListQueryAO roleListQueryAO){
+
+        RoleListQueryOrder order = new RoleListQueryOrder();
+        BeanUtils.copyProperties(roleListQueryAO,order);
+        order.setSerialNo(AppUtils.appCode("roleListQuery"));
+
+        RoleListQueryResult result = roleFacadeClient.roleListQuery(order);
+        return new JsonResult(result);
+    }
+
+    @ApiOperation(notes = "用户权限列表根据权限等级查询接口",value = "用户权限列表根据权限等级查询")
+    @GetMapping("/roleListQueryByLevel")
+    public JsonResult roleListQueryByLevel(@RequestParam(name = "roleLevel")Integer roleLevel){
+
+        RoleListQueryByLevelOrder order = new RoleListQueryByLevelOrder();
+        order.setLevel(roleLevel);
+        order.setSerialNo(AppUtils.appCode("roleListQueryByLevel"));
+
+        RoleListQueryByLevelResult result = roleFacadeClient.roleListQueryByLevel(order);
+        return new JsonResult(result);
+    }
+
+    @ApiOperation(notes = "用户权限列表根据权限父级id查询接口",value = "用户权限列表根据权限父级id查询")
+    @GetMapping("/roleListQueryBySuperiorId")
+    public JsonResult roleListQueryBySuperiorId(@RequestParam(name = "roleParentId")String roleParentId){
+
+        RoleListQueryBySuperiorIdOrder order = new RoleListQueryBySuperiorIdOrder();
+        order.setParentId(roleParentId);
+        order.setSerialNo(AppUtils.appCode("roleListQueryBySuperiorId"));
+
+        RoleListQueryBySuperiorIdResult result = roleFacadeClient.roleListQueryBySuperiosId(order);
+
         return new JsonResult(result);
     }
 }
