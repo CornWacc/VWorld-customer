@@ -4,6 +4,8 @@ import com.corn.boot.base.Base;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotBlank;
+
 
 /**
  * @author yyc
@@ -15,21 +17,27 @@ public class UserRegAO extends Base {
 
 
     @ApiModelProperty(value = "用户账号",name = "userAccount")
+    @NotBlank(message = "用户账号不能为空")
     private String userAccount;
 
     @ApiModelProperty(value = "用户密码",name = "userPassword")
+    @NotBlank(message = "用户密码不能为空")
     private String userPassword;
 
     @ApiModelProperty(value = "用户名称",name = "userName")
+    @NotBlank(message = "用户名称不能为空")
     private String userName;
 
     @ApiModelProperty(value = "用户邮箱",name = "userEmail")
+    @NotBlank(message = "用户邮箱不能为空")
     private String userEmail;
 
     @ApiModelProperty(value = "用户手机号",name = "userPhone")
+    @NotBlank(message = "用户手机号不能为空")
     private String userPhone;
 
     @ApiModelProperty(value = "用户头像",name = "userAvatar")
+    @NotBlank(message = "用户头像不能为空")
     private String userAvatar;
 
     public String getUserAvatar() {

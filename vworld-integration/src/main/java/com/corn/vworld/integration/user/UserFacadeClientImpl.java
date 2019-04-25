@@ -54,9 +54,18 @@ public class UserFacadeClientImpl implements UserFacadeClient {
 
     @Override
     public UserListPageQueryResult userListPageQuery(UserListPageQueryOrder order) {
-        log.info("业务[用户基础信息查询],入参:{}",order);
+        log.info("业务[用户列表分页查询],入参:{}",order);
         UserListPageQueryResult result = userFacade.userPageQuery(order);
-        log.info("业务[用户基础信息查询],出参:{}",result);
-        return result;    }
+        log.info("业务[用户列表分页查询],出参:{}",result);
+        return result;
+    }
+
+    @Override
+    public UserDelResult userDel(UserDelOrder order) {
+        log.info("业务[用户删除],入参:{}",order);
+        UserDelResult result = userFacade.userDel(order);
+        log.info("业务[用户删除],出参:{}",result);
+        return result;
+    }
 
 }

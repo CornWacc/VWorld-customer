@@ -18,4 +18,6 @@ public interface UserFacadeClient {
     UserInfoQueryResult userInfoQuery(UserInfoQueryOrder order);
 
     UserListPageQueryResult userListPageQuery(UserListPageQueryOrder order);
+
+    UserDelResult userDel(UserDelOrder order);
 }

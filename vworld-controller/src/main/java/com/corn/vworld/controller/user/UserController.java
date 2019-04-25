@@ -80,4 +80,16 @@ public class UserController {
         return new JsonResult(result);
     }
 
+    @GetMapping("/userDel")
+    @ApiOperation(value = "用户删除",notes = "用户删除接口")
+    public JsonResult userDel(String userId){
+
+        UserDelOrder order = new UserDelOrder();
+        order.setSerialNo(AppUtils.appCode("userDel"));
+        order.setUserId(userId);
+
+        UserDelResult result = userFacadeClient.userDel(order);
+        return new JsonResult(result);
+    }
+
 }
