@@ -46,7 +46,7 @@ public class RoleFacadeClientImpl implements RoleFacadeClient {
     public RoleListQueryBySuperiorIdResult roleListQueryBySuperiosId(RoleListQueryBySuperiorIdOrder order) {
         log.info("业务[权限列表查询根据权限父级id],入参:{}",order);
         RoleListQueryBySuperiorIdResult result = roleFacade.roleListQueryBySuperiorId(order);
-        log.info("业务[权限列表查询根据权限父级id],出参:{}",order);
+        log.info("业务[权限列表查询根据权限父级id],出参:{}",result);
         return result;
     }
 
@@ -54,7 +54,7 @@ public class RoleFacadeClientImpl implements RoleFacadeClient {
     public RoleTreeListQueryResult roleTreeListQuery(RoleTreeListQueryOrder order) {
         log.info("业务[权限树列表查询],入参:{}",order);
         RoleTreeListQueryResult result = roleFacade.roleTreeListQuery(order);
-        log.info("业务[权限树列表查询],出参:{}",order);
+        log.info("业务[权限树列表查询],出参:{}",result);
         return result;
     }
 
@@ -62,7 +62,7 @@ public class RoleFacadeClientImpl implements RoleFacadeClient {
     public RoleAddResult roleAdd(RoleAddOrder order) {
         log.info("业务[权限新增],入参:{}",order);
         RoleAddResult result = roleFacade.roleAdd(order);
-        log.info("业务[权限新增],出参:{}",order);
+        log.info("业务[权限新增],出参:{}",result);
         return result;
     }
 }
