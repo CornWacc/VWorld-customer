@@ -3,6 +3,7 @@ package com.corn.vworld.controller.role;
 import com.corn.boot.base.JsonResult;
 import com.corn.boot.util.AppUtils;
 import com.corn.vworld.controller.role.ao.RoleAddAO;
+import com.corn.vworld.controller.role.ao.RoleDelAO;
 import com.corn.vworld.controller.role.ao.RoleListQueryAO;
 import com.corn.vworld.facade.role.*;
 import com.corn.vworld.integration.role.RoleFacadeClient;
@@ -70,4 +71,18 @@ public class RoleController {
 
         return new JsonResult(result);
     }
+
+    @ApiOperation(notes = "用户权限删除根据用户Id接口",value = "用户权限删除根据用户id")
+    @PostMapping("/roleDel")
+    public JsonResult roleDel(@RequestBody  RoleDelAO ao){
+
+        RoleDelOrder order = new RoleDelOrder();
+        order.setSerialNo(AppUtils.appCode("roleDel"));
+        order.setRoleId(ao.getRoleId());
+
+        RoleDelResult roleDelResult = roleFacadeClient.roleDel(order);
+        return new JsonResult(roleDelResult);
+
+    }
+
 }
