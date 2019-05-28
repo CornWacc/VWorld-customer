@@ -20,10 +20,10 @@ public class RoleFacadeClientImpl implements RoleFacadeClient {
     private RoleFacade roleFacade;
 
     @Override
-    public RoleListQueryResult roleListQuery(RoleListQueryOrder order) {
-        log.info("业务[权限列表查询],入参:{}",order);
-        RoleListQueryResult result = roleFacade.roleListQuery(order);
-        log.info("业务[权限列表查询],出参:{}",result);
+    public RoleListPageQueryResult roleListPageQuery(RoleListPageQueryOrder order) {
+        log.info("业务[权限列表分页查询],入参:{}",order);
+        RoleListPageQueryResult result = roleFacade.roleListPageQuery(order);
+        log.info("业务[权限列表分页查询],出参:{}",result);
         return result;
     }
 

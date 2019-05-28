@@ -16,9 +16,9 @@ public interface RoleFacadeClient {
     RoleAddResult roleAdd(RoleAddOrder order);
 
     /**
-     * 权限列表查询
+     * 权限列表分页查询
      * */
-    RoleListQueryResult roleListQuery(RoleListQueryOrder order);
+    RoleListPageQueryResult roleListPageQuery(RoleListPageQueryOrder order);
 
     /**
      * 权限删除

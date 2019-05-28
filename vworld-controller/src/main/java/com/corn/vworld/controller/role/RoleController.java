@@ -4,7 +4,7 @@ import com.corn.boot.base.JsonResult;
 import com.corn.boot.util.AppUtils;
 import com.corn.vworld.controller.role.ao.RoleAddAO;
 import com.corn.vworld.controller.role.ao.RoleDelAO;
-import com.corn.vworld.controller.role.ao.RoleListQueryAO;
+import com.corn.vworld.controller.role.ao.RoleListPageQueryAO;
 import com.corn.vworld.facade.role.*;
 import com.corn.vworld.integration.role.RoleFacadeClient;
 import io.swagger.annotations.Api;
@@ -35,15 +35,15 @@ public class RoleController {
         return new JsonResult(result);
     }
 
-    @ApiOperation(notes = "用户权限列表查询接口",value = "用户列表查询")
-    @GetMapping("/roleListQuery")
-    public JsonResult roleListQuery(RoleListQueryAO roleListQueryAO){
+    @ApiOperation(notes = "用户权限列表分页查询接口",value = "权限列表分页查询")
+    @GetMapping("/roleListPageQuery")
+    public JsonResult roleListPageQuery(RoleListPageQueryAO ao){
 
-        RoleListQueryOrder order = new RoleListQueryOrder();
-        BeanUtils.copyProperties(roleListQueryAO,order);
+        RoleListPageQueryOrder order = new RoleListPageQueryOrder();
+        BeanUtils.copyProperties(ao,order);
         order.setSerialNo(AppUtils.appCode("roleListQuery"));
 
-        RoleListQueryResult result = roleFacadeClient.roleListQuery(order);
+        RoleListPageQueryResult result = roleFacadeClient.roleListPageQuery(order);
         return new JsonResult(result);
     }
 
@@ -83,6 +83,17 @@ public class RoleController {
         RoleDelResult roleDelResult = roleFacadeClient.roleDel(order);
         return new JsonResult(roleDelResult);
 
+    }
+
+    @ApiOperation(notes = "用户权限树查询",value = "用户权限树列表查询")
+    @GetMapping("/roleListTreeQuery")
+    public JsonResult roleListTreeQuery(){
+
+        RoleTreeListQueryOrder order = new RoleTreeListQueryOrder();
+        order.setSerialNo(AppUtils.appCode("roleListTreeQuery"));
+
+        RoleTreeListQueryResult result = roleFacadeClient.roleTreeListQuery(order);
+        return new JsonResult(result);
     }
 
 }
