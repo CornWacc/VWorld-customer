@@ -3,11 +3,24 @@ package com.corn.vworld.controller.user;
 
 import com.corn.boot.base.JsonResult;
 import com.corn.boot.util.AppUtils;
+import com.corn.vworld.common.util.AccountCacheUtil;
 import com.corn.vworld.controller.user.ao.UserInfoQueryAO;
 import com.corn.vworld.controller.user.ao.UserListPageQueryAO;
 import com.corn.vworld.controller.user.ao.UserLoginAO;
 import com.corn.vworld.controller.user.ao.UserRegAO;
 import com.corn.vworld.facade.user.*;
+import com.corn.vworld.facade.user.del.UserDelOrder;
+import com.corn.vworld.facade.user.del.UserDelResult;
+import com.corn.vworld.facade.user.infoquery.UserInfoQueryOrder;
+import com.corn.vworld.facade.user.infoquery.UserInfoQueryResult;
+import com.corn.vworld.facade.user.login.UserLoginOrder;
+import com.corn.vworld.facade.user.login.UserLoginResult;
+import com.corn.vworld.facade.user.logout.UserLogOutOrder;
+import com.corn.vworld.facade.user.logout.UserLogOutResult;
+import com.corn.vworld.facade.user.pagequery.UserListPageQueryOrder;
+import com.corn.vworld.facade.user.pagequery.UserListPageQueryResult;
+import com.corn.vworld.facade.user.reg.UserRegOrder;
+import com.corn.vworld.facade.user.reg.UserRegResult;
 import com.corn.vworld.integration.user.UserFacadeClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,6 +46,10 @@ public class UserController {
         BeanUtils.copyProperties(userLoginAO,order);
 
         UserLoginResult result = userFacadeClient.userLogin(order);
+
+        AccountCacheUtil.setAccountCache(result);
+
+        System.out.println(AccountCacheUtil.getAccountCache());
         return new JsonResult(result);
 
     }
@@ -89,6 +106,21 @@ public class UserController {
         order.setUserId(userId);
 
         UserDelResult result = userFacadeClient.userDel(order);
+        return new JsonResult(result);
+    }
+
+    @GetMapping("/userLogOut")
+    @ApiOperation(value = "用户注销",notes = "用户注销接口")
+    public JsonResult userLogOut(String userId){
+
+        UserLogOutOrder outOrder = new UserLogOutOrder();
+        outOrder.setUserId(userId);
+        outOrder.setSerialNo(AppUtils.appCode("userLogOut"));
+
+        UserLogOutResult result = userFacadeClient.userLogOut(outOrder);
+
+        //清除缓存
+        AccountCacheUtil.clear();
         return new JsonResult(result);
     }
 

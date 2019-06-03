@@ -24,15 +24,15 @@ public class FilterBeanAdministration {
 
     }
 
-    @Bean("orderCheckFilter")
-    public FilterRegistrationBean<OrderCheckFilter> createOrderCheckFilter(){
-
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-        registrationBean.setFilter(new OrderCheckFilter());
-        registrationBean.addUrlPatterns("/*");
-        registrationBean.setOrder(2);
-        return registrationBean;
-    }
+//    @Bean("orderCheckFilter")
+//    public FilterRegistrationBean<OrderCheckFilter> createOrderCheckFilter(){
+//
+//        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+//        registrationBean.setFilter(new OrderCheckFilter());
+//        registrationBean.addUrlPatterns("/*");
+//        registrationBean.setOrder(2);
+//        return registrationBean;
+//    }
 //
 //    @Bean("tokenCheckFilter")
 //    public FilterRegistrationBean<TokenCheckFilter> createTokenCheckFilter(){

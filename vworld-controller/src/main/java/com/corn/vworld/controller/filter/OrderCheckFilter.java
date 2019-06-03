@@ -33,23 +33,12 @@ public class OrderCheckFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        System.out.println(request.getParameter("createTime"));
-        System.out.println(request.getParameter("endTime"));
         String startTime = request.getParameter("createTime"); //开始时间
         if(startTime != null && startTime != ""){
-            System.out.println(1);
             String endTime = request.getParameter("endTime"); //结束时间
             SimpleDateFormat format = new SimpleDateFormat(DEFAULT_DATE_PARSE_STRING);
 
-            try {
-                request.setAttribute("createTime",format.parse(startTime));
-                request.setAttribute("endTime",format.parse(endTime));
-
-                filterChain.doFilter(request,response);
-            } catch (ParseException e) {
-
-                log.info("参数拦截过滤器异常:{}",e.getMessage());
-            }
+            filterChain.doFilter(request,response);
         }
         filterChain.doFilter(request,response);
     }

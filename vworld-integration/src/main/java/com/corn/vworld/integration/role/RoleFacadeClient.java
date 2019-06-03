@@ -1,6 +1,12 @@
 package com.corn.vworld.integration.role;
 
-import com.corn.vworld.facade.role.*;
+import com.corn.vworld.facade.role.del.RoleDelOrder;
+import com.corn.vworld.facade.role.del.RoleDelResult;
+import com.corn.vworld.facade.role.listquery.*;
+import com.corn.vworld.facade.role.pagequery.RoleListPageQueryOrder;
+import com.corn.vworld.facade.role.pagequery.RoleListPageQueryResult;
+import com.corn.vworld.facade.role.roleadd.RoleAddOrder;
+import com.corn.vworld.facade.role.roleadd.RoleAddResult;
 
 public interface RoleFacadeClient {
 

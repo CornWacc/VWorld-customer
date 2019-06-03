@@ -1,6 +1,20 @@
 package com.corn.vworld.integration.user;
 
-import com.corn.vworld.facade.user.*;
+import com.corn.vworld.facade.user.UserFacade;
+import com.corn.vworld.facade.user.del.UserDelOrder;
+import com.corn.vworld.facade.user.del.UserDelResult;
+import com.corn.vworld.facade.user.forgetpassword.UserForgetPasswordOrder;
+import com.corn.vworld.facade.user.forgetpassword.UserForgetPasswordResult;
+import com.corn.vworld.facade.user.infoquery.UserInfoQueryOrder;
+import com.corn.vworld.facade.user.infoquery.UserInfoQueryResult;
+import com.corn.vworld.facade.user.login.UserLoginOrder;
+import com.corn.vworld.facade.user.login.UserLoginResult;
+import com.corn.vworld.facade.user.logout.UserLogOutOrder;
+import com.corn.vworld.facade.user.logout.UserLogOutResult;
+import com.corn.vworld.facade.user.pagequery.UserListPageQueryOrder;
+import com.corn.vworld.facade.user.pagequery.UserListPageQueryResult;
+import com.corn.vworld.facade.user.reg.UserRegOrder;
+import com.corn.vworld.facade.user.reg.UserRegResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +79,14 @@ public class UserFacadeClientImpl implements UserFacadeClient {
         log.info("业务[用户删除],入参:{}",order);
         UserDelResult result = userFacade.userDel(order);
         log.info("业务[用户删除],出参:{}",result);
+        return result;
+    }
+
+    @Override
+    public UserLogOutResult userLogOut(UserLogOutOrder order) {
+        log.info("业务[用户注销],入参:{}",order);
+        UserLogOutResult result = userFacade.userLogOut(order);
+        log.info("业务[用户注销],出参:{}",result);
         return result;
     }
 

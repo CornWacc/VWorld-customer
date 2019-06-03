@@ -10,4 +10,6 @@
 
     <dubbo:reference interface="com.corn.vworld.facade.user.UserFacade" version="0.0.1" id="userFacade"></dubbo:reference>
     <dubbo:reference interface="com.corn.vworld.facade.role.RoleFacade" version="0.0.1" id="RoleFacade"></dubbo:reference>
+    <dubbo:reference interface="com.corn.vworld.facade.banner.BannerFacade" version="0.0.1" id="BannerFacade"></dubbo:reference>
+
 </beans>
