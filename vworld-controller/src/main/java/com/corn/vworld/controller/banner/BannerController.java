@@ -34,8 +34,6 @@ public class BannerController {
     public JsonResult mainBannerListPageQuery(MainBannerListPageQueryAO ao){
 
         MainBannerListPageQueryOrder order = new MainBannerListPageQueryOrder();
-        System.out.println(order);
-        System.out.println(ao);
         BeanUtils.copyProperties(ao,order);
         order.setMainBannerStatus(SwitchEnum.getByCode(ao.getMainBannerStatus()));
         order.setSerialNo(AppUtils.appCode(""));

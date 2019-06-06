@@ -53,12 +53,10 @@ public class UserListPageQueryAO extends Base {
         this.type = type;
     }
 
-    @Override
     public String getKeyWord() {
         return keyWord;
     }
 
-    @Override
     public void setKeyWord(String keyWord) {
         this.keyWord = keyWord;
     }
