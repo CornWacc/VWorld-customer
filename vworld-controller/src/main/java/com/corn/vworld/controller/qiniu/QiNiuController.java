@@ -25,7 +25,6 @@ public class QiNiuController {
 
         Auth auth = Auth.create(ACCESS_KEY,SECRET_KEY);
         String token  = auth.uploadToken(BUCKET_NAME);
-        System.out.println(token);
         return new JsonResult(token);
     }
 

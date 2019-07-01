@@ -1,6 +1,7 @@
 package com.corn.vworld.controller.user.ao;
 
 import com.corn.boot.base.Base;
+import com.corn.vworld.common.util.ConstantParamsGetUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -45,7 +46,7 @@ public class UserRegAO extends Base {
     }
 
     public void setUserAvatar(String userAvatar) {
-        this.userAvatar = userAvatar;
+        this.userAvatar = ConstantParamsGetUtil.QINIU_IMAGE_URL_PREFIX+"/"+userAvatar;
     }
 
     public String getUserEmail() {

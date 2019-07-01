@@ -49,7 +49,6 @@ public class UserController {
 
         AccountCacheUtil.setAccountCache(result);
 
-        System.out.println(AccountCacheUtil.getAccountCache());
         return new JsonResult(result);
 
     }
