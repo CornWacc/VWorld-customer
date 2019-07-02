@@ -27,7 +27,7 @@ public class ExceptionHandlers implements ErrorController {
     public JsonResult MethodArgumentNotValidExceptionHandler(HttpServletRequest request, MethodArgumentNotValidException e){
         BindingResult bindingResult = e.getBindingResult();
         log.info("请求接口失败{},失败原因:{}",request.getRequestURI(),bindingResult.getFieldError().getDefaultMessage());
-        return new JsonResult(bindingResult.getFieldError().getDefaultMessage());
+        return new JsonResult(JsonResult.FIAL_MSG,bindingResult.getFieldError().getDefaultMessage());
     }
 
     @Override
