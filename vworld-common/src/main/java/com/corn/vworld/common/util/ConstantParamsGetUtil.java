@@ -7,5 +7,5 @@ package com.corn.vworld.common.util;
  * */
 public class ConstantParamsGetUtil {
 
-    public static final String QINIU_IMAGE_URL_PREFIX = "http://upload.vworld.top";
+    public static final String QINIU_IMAGE_URL_PREFIX = "http://upload.vworld.top/";
 }

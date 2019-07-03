@@ -1,6 +1,7 @@
 package com.corn.vworld.controller.banner.ao;
 
 import com.corn.boot.base.Base;
+import com.corn.vworld.common.util.ConstantParamsGetUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -28,7 +29,6 @@ public class MainBannerAddAO extends Base {
      * 主页bannerUrl
      */
     @ApiModelProperty(name = "mainBannerUrl",value = "主页bannerUrl")
-    @NotBlank(message = "主页bannerUrl不能为空")
     private String mainBannerUrl;
 
     /**
@@ -57,6 +57,20 @@ public class MainBannerAddAO extends Base {
     @ApiModelProperty(name = "mainBannerStatus",value = "主页Banner状态")
     @NotBlank(message = "主页Banner状态不能为空")
     private String mainBannerStatus;
+
+    /**
+     * 七牛上传后的回调
+     * */
+    @ApiModelProperty(name = "qiNiuUploadCallBack",value = "七牛上传后的回调s")
+    private String qiNiuUploadCallBack;
+
+    public String getQiNiuUploadCallBack() {
+        return qiNiuUploadCallBack;
+    }
+
+    public void setQiNiuUploadCallBack(String qiNiuUploadCallBack) {
+        this.qiNiuUploadCallBack = qiNiuUploadCallBack;
+    }
 
     public String getUploadType() {
         return uploadType;

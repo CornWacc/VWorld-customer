@@ -46,7 +46,7 @@ public class UserRegAO extends Base {
     }
 
     public void setUserAvatar(String userAvatar) {
-        this.userAvatar = ConstantParamsGetUtil.QINIU_IMAGE_URL_PREFIX+"/"+userAvatar;
+        this.userAvatar = ConstantParamsGetUtil.QINIU_IMAGE_URL_PREFIX+userAvatar;
     }
 
     public String getUserEmail() {

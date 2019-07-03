@@ -4,6 +4,7 @@ package com.corn.vworld.controller.banner;
 import com.corn.boot.base.JsonResult;
 import com.corn.boot.enums.SwitchEnum;
 import com.corn.boot.util.AppUtils;
+import com.corn.vworld.common.util.ConstantParamsGetUtil;
 import com.corn.vworld.controller.banner.ao.MainBannerAddAO;
 import com.corn.vworld.controller.banner.ao.MainBannerDelAO;
 import com.corn.vworld.controller.banner.ao.MainBannerListPageQueryAO;
@@ -11,8 +12,11 @@ import com.corn.vworld.facade.banner.add.MainBannerAddOrder;
 import com.corn.vworld.facade.banner.add.MainBannerAddResult;
 import com.corn.vworld.facade.banner.del.MainBannerDelOrder;
 import com.corn.vworld.facade.banner.del.MainBannerDelResult;
+import com.corn.vworld.facade.banner.listquery.MainBannerListQueryOrder;
+import com.corn.vworld.facade.banner.listquery.MainBannerListQueryResult;
 import com.corn.vworld.facade.banner.pagequery.MainBannerListPageQueryOrder;
 import com.corn.vworld.facade.banner.pagequery.MainBannerListPageQueryResult;
+import com.corn.vworld.facade.enums.UploadTypeEnums;
 import com.corn.vworld.integration.banner.BannerFacadeClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -55,6 +59,11 @@ public class BannerController {
 
         MainBannerAddOrder order = new MainBannerAddOrder();
         BeanUtils.copyProperties(ao,order);
+
+        //如果是本地上传
+        if(ao.getUploadType().equalsIgnoreCase(UploadTypeEnums.LOCAL.code())){
+            order.setMainBannerUrl(ConstantParamsGetUtil.QINIU_IMAGE_URL_PREFIX+ao.getQiNiuUploadCallBack());
+        }
         order.setSerialNo(AppUtils.appCode("mainBannerAdd"));
         order.setCreateTime(new Date());
 
@@ -63,7 +72,7 @@ public class BannerController {
         return new JsonResult(result);
     }
 
-    @ApiOperation(value = "主页广告新增接口",notes = "主页广告新增")
+    @ApiOperation(value = "主页广告删除接口",notes = "主页广告删除")
     @PostMapping("/mainBannerDel")
     public JsonResult mainBannerDel(@RequestBody @Valid MainBannerDelAO ao){
 
@@ -72,6 +81,18 @@ public class BannerController {
         order.setSerialNo(AppUtils.appCode("mainBannerDel"));
 
         MainBannerDelResult result = bannerFacadeClient.mainBannerDel(order);
+
+        return new JsonResult(result);
+    }
+
+    @ApiOperation(value = "主页广告列表查询接口",notes = "主页广告列表查询")
+    @GetMapping("/mainBannerListQuery")
+    public JsonResult mainBannerListQuery(){
+
+        MainBannerListQueryOrder order = new MainBannerListQueryOrder();
+        order.setSerialNo(AppUtils.appCode("mainBannerListQuery"));
+
+        MainBannerListQueryResult result = bannerFacadeClient.mainBannerListQuery(order);
 
         return new JsonResult(result);
     }

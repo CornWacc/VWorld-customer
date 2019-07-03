@@ -5,6 +5,8 @@ import com.corn.vworld.facade.banner.add.MainBannerAddOrder;
 import com.corn.vworld.facade.banner.add.MainBannerAddResult;
 import com.corn.vworld.facade.banner.del.MainBannerDelOrder;
 import com.corn.vworld.facade.banner.del.MainBannerDelResult;
+import com.corn.vworld.facade.banner.listquery.MainBannerListQueryOrder;
+import com.corn.vworld.facade.banner.listquery.MainBannerListQueryResult;
 import com.corn.vworld.facade.banner.pagequery.MainBannerListPageQueryOrder;
 import com.corn.vworld.facade.banner.pagequery.MainBannerListPageQueryResult;
 
@@ -28,4 +30,9 @@ public interface BannerFacadeClient {
      * 主页广告删除
      * */
     MainBannerDelResult mainBannerDel(MainBannerDelOrder order);
+
+    /**
+     * 主页广告列表查询
+     * */
+    MainBannerListQueryResult mainBannerListQuery(MainBannerListQueryOrder order);
 }

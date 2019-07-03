@@ -5,6 +5,8 @@ import com.corn.vworld.facade.banner.add.MainBannerAddOrder;
 import com.corn.vworld.facade.banner.add.MainBannerAddResult;
 import com.corn.vworld.facade.banner.del.MainBannerDelOrder;
 import com.corn.vworld.facade.banner.del.MainBannerDelResult;
+import com.corn.vworld.facade.banner.listquery.MainBannerListQueryOrder;
+import com.corn.vworld.facade.banner.listquery.MainBannerListQueryResult;
 import com.corn.vworld.facade.banner.pagequery.MainBannerListPageQueryOrder;
 import com.corn.vworld.facade.banner.pagequery.MainBannerListPageQueryResult;
 import org.slf4j.Logger;
@@ -46,6 +48,14 @@ public class BannerFacadeClientImpl implements BannerFacadeClient {
         log.info("业务[主页广告删除],入参:{}",order);
         MainBannerDelResult result = bannerFacade.mainBannerDel(order);
         log.info("业务[主页广告删除],出参:{}",result);
+        return result;
+    }
+
+    @Override
+    public MainBannerListQueryResult mainBannerListQuery(MainBannerListQueryOrder order) {
+        log.info("业务[主页广告列表查询],入参:{}",order);
+        MainBannerListQueryResult result = bannerFacade.mainBannerListQuery(order);
+        log.info("业务[主页广告列表查询],出参:{}",result);
         return result;
     }
 }
