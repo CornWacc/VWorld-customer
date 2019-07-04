@@ -15,6 +15,8 @@ import com.corn.vworld.facade.user.pagequery.UserListPageQueryOrder;
 import com.corn.vworld.facade.user.pagequery.UserListPageQueryResult;
 import com.corn.vworld.facade.user.reg.UserRegOrder;
 import com.corn.vworld.facade.user.reg.UserRegResult;
+import com.corn.vworld.facade.user.update.UserUpdateOrder;
+import com.corn.vworld.facade.user.update.UserUpdateResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,4 +92,11 @@ public class UserFacadeClientImpl implements UserFacadeClient {
         return result;
     }
 
+    @Override
+    public UserUpdateResult userUpdate(UserUpdateOrder order) {
+        log.info("业务[用户更新],入参:{}",order);
+        UserUpdateResult result = userFacade.userUpdate(order);
+        log.info("业务[用户更新],出参:{}",result);
+        return result;
+    }
 }

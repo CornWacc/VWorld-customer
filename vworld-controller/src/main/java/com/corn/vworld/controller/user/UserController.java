@@ -4,10 +4,7 @@ package com.corn.vworld.controller.user;
 import com.corn.boot.base.JsonResult;
 import com.corn.boot.util.AppUtils;
 import com.corn.vworld.common.util.AccountCacheUtil;
-import com.corn.vworld.controller.user.ao.UserInfoQueryAO;
-import com.corn.vworld.controller.user.ao.UserListPageQueryAO;
-import com.corn.vworld.controller.user.ao.UserLoginAO;
-import com.corn.vworld.controller.user.ao.UserRegAO;
+import com.corn.vworld.controller.user.ao.*;
 import com.corn.vworld.facade.user.*;
 import com.corn.vworld.facade.user.del.UserDelOrder;
 import com.corn.vworld.facade.user.del.UserDelResult;
@@ -21,6 +18,8 @@ import com.corn.vworld.facade.user.pagequery.UserListPageQueryOrder;
 import com.corn.vworld.facade.user.pagequery.UserListPageQueryResult;
 import com.corn.vworld.facade.user.reg.UserRegOrder;
 import com.corn.vworld.facade.user.reg.UserRegResult;
+import com.corn.vworld.facade.user.update.UserUpdateOrder;
+import com.corn.vworld.facade.user.update.UserUpdateResult;
 import com.corn.vworld.integration.user.UserFacadeClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -120,6 +119,19 @@ public class UserController {
 
         //清除缓存
         AccountCacheUtil.clear();
+        return new JsonResult(result);
+    }
+
+    @PostMapping("/userUpdate")
+    @ApiOperation(value = "用户注销",notes = "用户注销接口")
+    public JsonResult userUpdate(@RequestBody UserUpdateAO ao){
+
+        UserUpdateOrder order = new UserUpdateOrder();
+        BeanUtils.copyProperties(ao,order);
+        order.setSerialNo(AppUtils.appCode("userUpdate"));
+
+        UserUpdateResult result = userFacadeClient.userUpdate(order);
+
         return new JsonResult(result);
     }
 
