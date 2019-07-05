@@ -123,7 +123,7 @@ public class UserController {
     }
 
     @PostMapping("/userUpdate")
-    @ApiOperation(value = "用户注销",notes = "用户注销接口")
+    @ApiOperation(value = "用户更新",notes = "用户更新接口")
     public JsonResult userUpdate(@RequestBody UserUpdateAO ao){
 
         UserUpdateOrder order = new UserUpdateOrder();

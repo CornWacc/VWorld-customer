@@ -45,13 +45,6 @@ public class MainBannerAddAO extends Base {
     private String skipUrl;
 
     /**
-     * 权重
-     */
-    @ApiModelProperty(name = "weight",value = "权重")
-    @NotNull(message = "权重不能为空")
-    private Integer weight;
-
-    /**
      * 主页Banner状态
      */
     @ApiModelProperty(name = "mainBannerStatus",value = "主页Banner状态")
@@ -102,14 +95,6 @@ public class MainBannerAddAO extends Base {
 
     public void setSkipUrl(String skipUrl) {
         this.skipUrl = skipUrl;
-    }
-
-    public Integer getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Integer weight) {
-        this.weight = weight;
     }
 
     public String getMainBannerStatus() {
