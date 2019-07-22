@@ -33,22 +33,6 @@ public class UserRegAO extends Base {
     @NotBlank(message = "用户邮箱不能为空")
     private String userEmail;
 
-    @ApiModelProperty(value = "用户手机号",name = "userPhone")
-    @NotBlank(message = "用户手机号不能为空")
-    private String userPhone;
-
-    @ApiModelProperty(value = "用户头像",name = "userAvatar")
-    @NotBlank(message = "用户头像不能为空")
-    private String userAvatar;
-
-    public String getUserAvatar() {
-        return userAvatar;
-    }
-
-    public void setUserAvatar(String userAvatar) {
-        this.userAvatar = ConstantParamsGetUtil.QINIU_IMAGE_URL_PREFIX+userAvatar;
-    }
-
     public String getUserEmail() {
         return userEmail;
     }
@@ -57,13 +41,6 @@ public class UserRegAO extends Base {
         this.userEmail = userEmail;
     }
 
-    public String getUserPhone() {
-        return userPhone;
-    }
-
-    public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone;
-    }
 
     public String getUserAccount() {
         return userAccount;

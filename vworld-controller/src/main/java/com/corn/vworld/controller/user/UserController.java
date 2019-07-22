@@ -2,6 +2,7 @@ package com.corn.vworld.controller.user;
 
 
 import com.corn.boot.base.JsonResult;
+import com.corn.boot.base.PageParamInfo;
 import com.corn.boot.util.AppUtils;
 import com.corn.vworld.common.util.AccountCacheUtil;
 import com.corn.vworld.controller.user.ao.*;
@@ -62,8 +63,6 @@ public class UserController {
         order.setUserName(userRegAO.getUserName());
         order.setUserPassword(userRegAO.getUserPassword());
         order.setUserEmail(userRegAO.getUserEmail());
-        order.setUserPhone(userRegAO.getUserPhone());
-        order.setUserAvatar(userRegAO.getUserAvatar());
         UserRegResult regResult = userFacadeClient.userReg(order);
         return new JsonResult(regResult);
 
@@ -89,8 +88,7 @@ public class UserController {
         order.setSerialNo(AppUtils.appCode("userListPageQuery"));
         order.setKeyWord(ao.getKeyWord());
         order.setType(ao.getType());
-        order.setPageNum(ao.getPageNum());
-        order.setPageSize(ao.getPageSize());
+        order.setPageParamInfo(new PageParamInfo(ao.getPageNum(),ao.getPageSize()));
         UserListPageQueryResult result = userFacadeClient.userListPageQuery(order);
         return new JsonResult(result);
     }
