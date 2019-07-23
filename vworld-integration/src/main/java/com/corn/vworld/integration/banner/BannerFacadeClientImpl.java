@@ -1,12 +1,16 @@
 package com.corn.vworld.integration.banner;
 
 import com.corn.vworld.facade.banner.BannerFacade;
+import com.corn.vworld.facade.banner.add.LoginBannerAddOrder;
+import com.corn.vworld.facade.banner.add.LoginBannerAddResult;
 import com.corn.vworld.facade.banner.add.MainBannerAddOrder;
 import com.corn.vworld.facade.banner.add.MainBannerAddResult;
 import com.corn.vworld.facade.banner.del.MainBannerDelOrder;
 import com.corn.vworld.facade.banner.del.MainBannerDelResult;
 import com.corn.vworld.facade.banner.listquery.MainBannerListQueryOrder;
 import com.corn.vworld.facade.banner.listquery.MainBannerListQueryResult;
+import com.corn.vworld.facade.banner.pagequery.LoginBannerListPageQueryOrder;
+import com.corn.vworld.facade.banner.pagequery.LoginBannerListPageQueryResult;
 import com.corn.vworld.facade.banner.pagequery.MainBannerListPageQueryOrder;
 import com.corn.vworld.facade.banner.pagequery.MainBannerListPageQueryResult;
 import org.slf4j.Logger;
@@ -56,6 +60,22 @@ public class BannerFacadeClientImpl implements BannerFacadeClient {
         log.info("业务[主页广告列表查询],入参:{}",order);
         MainBannerListQueryResult result = bannerFacade.mainBannerListQuery(order);
         log.info("业务[主页广告列表查询],出参:{}",result);
+        return result;
+    }
+
+    @Override
+    public LoginBannerListPageQueryResult loginBannerListPageQuery(LoginBannerListPageQueryOrder order) {
+        log.info("业务[登陆广告分页查询],入参:{}",order);
+        LoginBannerListPageQueryResult result = bannerFacade.loginBannerListPageQuery(order);
+        log.info("业务[登陆广告分页查询],出参:{}",result);
+        return result;
+    }
+
+    @Override
+    public LoginBannerAddResult loginBannerAdd(LoginBannerAddOrder order) {
+        log.info("业务[登录广告新增],入参:{}",order);
+        LoginBannerAddResult result = bannerFacade.loginBannerAdd(order);
+        log.info("业务[登录广告新增],出参:{}",result);
         return result;
     }
 }

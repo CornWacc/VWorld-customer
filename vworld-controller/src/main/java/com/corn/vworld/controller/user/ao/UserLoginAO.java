@@ -19,6 +19,17 @@ public class UserLoginAO extends Base {
     @ApiModelProperty(name = "userPassword",required = true,value = "用户密码")
     private String userPassword;
 
+    @ApiModelProperty(name = "imageCode",required = true,value = "验证码")
+    private String imageCode;
+
+    public String getImageCode() {
+        return imageCode;
+    }
+
+    public void setImageCode(String imageCode) {
+        this.imageCode = imageCode;
+    }
+
     public String getUserAccount() {
         return userAccount;
     }

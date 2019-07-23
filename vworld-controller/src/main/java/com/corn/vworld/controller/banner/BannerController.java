@@ -2,24 +2,31 @@ package com.corn.vworld.controller.banner;
 
 
 import com.corn.boot.base.JsonResult;
+import com.corn.boot.enums.Status;
 import com.corn.boot.enums.SwitchEnum;
 import com.corn.boot.util.AppUtils;
 import com.corn.vworld.common.util.ConstantParamsGetUtil;
+import com.corn.vworld.controller.banner.ao.LoginBannerAddAO;
 import com.corn.vworld.controller.banner.ao.MainBannerAddAO;
 import com.corn.vworld.controller.banner.ao.MainBannerDelAO;
 import com.corn.vworld.controller.banner.ao.MainBannerListPageQueryAO;
+import com.corn.vworld.facade.banner.add.LoginBannerAddOrder;
+import com.corn.vworld.facade.banner.add.LoginBannerAddResult;
 import com.corn.vworld.facade.banner.add.MainBannerAddOrder;
 import com.corn.vworld.facade.banner.add.MainBannerAddResult;
 import com.corn.vworld.facade.banner.del.MainBannerDelOrder;
 import com.corn.vworld.facade.banner.del.MainBannerDelResult;
 import com.corn.vworld.facade.banner.listquery.MainBannerListQueryOrder;
 import com.corn.vworld.facade.banner.listquery.MainBannerListQueryResult;
+import com.corn.vworld.facade.banner.pagequery.LoginBannerListPageQueryOrder;
+import com.corn.vworld.facade.banner.pagequery.LoginBannerListPageQueryResult;
 import com.corn.vworld.facade.banner.pagequery.MainBannerListPageQueryOrder;
 import com.corn.vworld.facade.banner.pagequery.MainBannerListPageQueryResult;
 import com.corn.vworld.facade.enums.UploadTypeEnums;
 import com.corn.vworld.integration.banner.BannerFacadeClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -94,6 +101,34 @@ public class BannerController {
 
         MainBannerListQueryResult result = bannerFacadeClient.mainBannerListQuery(order);
 
+        return new JsonResult(result);
+    }
+
+    @ApiOperation(value = "登陆广告(分页)列表查询",notes = "登陆广告列表查询")
+    @GetMapping("/loginBannerListPageQuery")
+    public JsonResult loginBannerListPageQuery(MainBannerListPageQueryAO ao){
+
+        LoginBannerListPageQueryOrder order = new LoginBannerListPageQueryOrder();
+        order.setSerialNo(AppUtils.appCode("loginBannerListPageQuery"));
+        order.setStatus(StringUtils.isBlank(ao.getMainBannerStatus()) ? null : Status.findStatus(ao.getMainBannerStatus()));
+        order.setStartTime(ao.getStartTime());
+        order.setEndTime(ao.getEndTime());
+        LoginBannerListPageQueryResult result = bannerFacadeClient.loginBannerListPageQuery(order);
+
+        return new JsonResult(result);
+    }
+
+    @ApiOperation(value = "登陆广告新增",notes = "登陆广告新增")
+    @PostMapping("/loginBannerAdd")
+    public JsonResult loginBannerAdd(@RequestBody LoginBannerAddAO ao){
+
+        LoginBannerAddOrder order = new LoginBannerAddOrder();
+        order.setSerialNo(AppUtils.appCode("loginBannerAdd"));
+        BeanUtils.copyProperties(ao,order);
+        if(ao.getUploadType().equalsIgnoreCase(UploadTypeEnums.LOCAL.code())){
+            order.setLoginBannerUrl(ConstantParamsGetUtil.QINIU_IMAGE_URL_PREFIX+ao.getQiNiuUploadCallBack());
+        }
+        LoginBannerAddResult result = bannerFacadeClient.loginBannerAdd(order);
         return new JsonResult(result);
     }
 }
