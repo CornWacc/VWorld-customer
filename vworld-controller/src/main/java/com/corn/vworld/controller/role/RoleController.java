@@ -48,7 +48,7 @@ public class RoleController {
         RoleListPageQueryOrder order = new RoleListPageQueryOrder();
         BeanUtils.copyProperties(ao,order);
         order.setSerialNo(AppUtils.appCode("roleListQuery"));
-
+        order.setPageParamInfo(ao.getPageParamInfo());
         RoleListPageQueryResult result = roleFacadeClient.roleListPageQuery(order);
         return new JsonResult(result);
     }

@@ -2,6 +2,7 @@ package com.corn.vworld.controller.banner;
 
 
 import com.corn.boot.base.JsonResult;
+import com.corn.boot.base.PageParamInfo;
 import com.corn.boot.enums.Status;
 import com.corn.boot.enums.SwitchEnum;
 import com.corn.boot.util.AppUtils;
@@ -52,10 +53,9 @@ public class BannerController {
     public JsonResult mainBannerListPageQuery(MainBannerListPageQueryAO ao){
 
         MainBannerListPageQueryOrder order = new MainBannerListPageQueryOrder();
-        BeanUtils.copyProperties(ao,order);
         order.setMainBannerStatus(SwitchEnum.getByCode(ao.getMainBannerStatus()));
         order.setSerialNo(AppUtils.appCode("mainBannerListPageQuery"));
-
+        order.setPageParamInfo(ao.getPageParamInfo());
         MainBannerListPageQueryResult result = bannerFacadeClient.mainBannerListPageQuery(order);
         return new JsonResult(result);
     }
@@ -110,9 +110,10 @@ public class BannerController {
 
         LoginBannerListPageQueryOrder order = new LoginBannerListPageQueryOrder();
         order.setSerialNo(AppUtils.appCode("loginBannerListPageQuery"));
-        order.setStatus(StringUtils.isBlank(ao.getMainBannerStatus()) ? null : Status.findStatus(ao.getMainBannerStatus()));
+        order.setStatus(ao.getMainBannerStatus());
         order.setStartTime(ao.getStartTime());
         order.setEndTime(ao.getEndTime());
+        order.setPageParamInfo(ao.getPageParamInfo());
         LoginBannerListPageQueryResult result = bannerFacadeClient.loginBannerListPageQuery(order);
 
         return new JsonResult(result);
