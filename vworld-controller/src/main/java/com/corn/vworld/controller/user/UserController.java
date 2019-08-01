@@ -72,7 +72,6 @@ public class UserController {
         UserRegOrder order = new UserRegOrder();
         order.setSerialNo(AppUtils.appCode("userReg"));
         order.setUserAccount(userRegAO.getUserAccount());
-        order.setUserName(userRegAO.getUserName());
         order.setUserPassword(userRegAO.getUserPassword());
         order.setUserEmail(userRegAO.getUserEmail());
         UserRegResult regResult = userFacadeClient.userReg(order);

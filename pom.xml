@@ -42,7 +42,12 @@
             <groupId>com.corn.base</groupId>
             <artifactId>yyc-spring-boot-starter-pojo</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.springframework.boot</groupId>-->
+                    <!--<artifactId>spring-boot-starter-web</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
         </dependency>
 
         <dependency>
@@ -62,7 +67,6 @@
             <artifactId>zkclient</artifactId>
             <version>0.11</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
