@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 public class ExceptionHandlers implements ErrorController {
 
     private static final Logger log = LoggerFactory.getLogger(ExceptionHandlers.class);
+
     /**
      * 该异常是Volidation校验出错的异常
      * */
