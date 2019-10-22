@@ -13,6 +13,7 @@ import com.corn.vworld.facade.banner.pagequery.LoginBannerListPageQueryOrder;
 import com.corn.vworld.facade.banner.pagequery.LoginBannerListPageQueryResult;
 import com.corn.vworld.facade.banner.pagequery.MainBannerListPageQueryOrder;
 import com.corn.vworld.facade.banner.pagequery.MainBannerListPageQueryResult;
+import org.apache.dubbo.config.annotation.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class BannerFacadeClientImpl implements BannerFacadeClient {
 
     private static final Logger log = LoggerFactory.getLogger(BannerFacadeClientImpl.class);
 
-    @Autowired
+    @Reference(version = "1.0")
     private BannerFacade bannerFacade;
 
     @Override

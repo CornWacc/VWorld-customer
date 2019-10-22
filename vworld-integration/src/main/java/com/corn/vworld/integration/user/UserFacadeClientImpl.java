@@ -17,6 +17,7 @@ import com.corn.vworld.facade.user.reg.UserRegOrder;
 import com.corn.vworld.facade.user.reg.UserRegResult;
 import com.corn.vworld.facade.user.update.UserUpdateOrder;
 import com.corn.vworld.facade.user.update.UserUpdateResult;
+import org.apache.dubbo.config.annotation.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class UserFacadeClientImpl implements UserFacadeClient {
 
     private static final Logger log = LoggerFactory.getLogger(UserFacadeClient.class);
 
-    @Autowired
+    @Reference(version = "1.0")
     private UserFacade userFacade;
 
 

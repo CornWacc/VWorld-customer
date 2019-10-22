@@ -2,8 +2,6 @@ package com.corn.vworld.controller.banner;
 
 
 import com.corn.boot.base.JsonResult;
-import com.corn.boot.base.PageParamInfo;
-import com.corn.boot.enums.Status;
 import com.corn.boot.enums.SwitchEnum;
 import com.corn.boot.util.AppUtils;
 import com.corn.vworld.common.util.ConstantParamsGetUtil;
@@ -27,7 +25,6 @@ import com.corn.vworld.facade.enums.UploadTypeEnums;
 import com.corn.vworld.integration.banner.BannerFacadeClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

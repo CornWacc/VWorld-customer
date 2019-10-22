@@ -1,15 +1,12 @@
 package com.corn.vworld.controller.user;
 
 
-import com.corn.boot.base.ImageCode;
 import com.corn.boot.base.JsonResult;
 import com.corn.boot.base.PageParamInfo;
-import com.corn.boot.enums.Status;
 import com.corn.boot.util.AppUtils;
 import com.corn.vworld.common.util.AccountCacheUtil;
 import com.corn.vworld.common.util.RedisOperator;
 import com.corn.vworld.controller.user.ao.*;
-import com.corn.vworld.facade.user.*;
 import com.corn.vworld.facade.user.del.UserDelOrder;
 import com.corn.vworld.facade.user.del.UserDelResult;
 import com.corn.vworld.facade.user.infoquery.UserInfoQueryOrder;
@@ -27,7 +24,6 @@ import com.corn.vworld.facade.user.update.UserUpdateResult;
 import com.corn.vworld.integration.user.UserFacadeClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -47,11 +43,6 @@ public class UserController {
     @PostMapping("/userLogin")
     @ApiOperation(value = "用户登录", notes = "用户登陆接口")
     public JsonResult userLogin(@RequestBody UserLoginAO userLoginAO) {
-
-        if (StringUtils.isBlank(redisOperator.get(ImageCode.IMAGE_CODE_REDIS + userLoginAO.getImageCode()))) {
-
-            return new JsonResult(Status.FAIL.code(),"验证码已过期,请刷新重试!");
-        }
 
         UserLoginOrder order = new UserLoginOrder();
         order.setSerialNo(AppUtils.appCode("userLogin"));

@@ -5,9 +5,9 @@ spring:
     database: 1
 
 dubbo:
+  application:
+    name: vworld-customer
   registry:
-    address: zookeeper://127.0.0.1:2181
-    group: dubbo
-  protocol:
-    port: 28080
+    address: nacos://127.0.0.1:8848
+    group: vworld-customer
 

@@ -9,6 +9,7 @@ import com.corn.vworld.facade.role.pagequery.RoleListPageQueryOrder;
 import com.corn.vworld.facade.role.pagequery.RoleListPageQueryResult;
 import com.corn.vworld.facade.role.roleadd.RoleAddOrder;
 import com.corn.vworld.facade.role.roleadd.RoleAddResult;
+import org.apache.dubbo.config.annotation.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class RoleFacadeClientImpl implements RoleFacadeClient {
 
     private static final Logger log = LoggerFactory.getLogger(RoleFacadeClientImpl.class);
 
-    @Autowired
+    @Reference(version = "1.0")
     private RoleFacade roleFacade;
 
     @Override
