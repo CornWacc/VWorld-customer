@@ -20,12 +20,6 @@
 
         <dependency>
             <groupId>com.corn.vworld</groupId>
-            <artifactId>vworld-facade</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.corn.vworld</groupId>
             <artifactId>vworld-integration</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
