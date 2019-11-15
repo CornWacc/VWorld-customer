@@ -2,6 +2,7 @@ package com.corn.vworld.controller.banner;
 
 
 import com.corn.boot.base.JsonResult;
+import com.corn.boot.base.PageParamInfo;
 import com.corn.boot.enums.SwitchEnum;
 import com.corn.boot.util.AppUtils;
 import com.corn.vworld.common.util.ConstantParamsGetUtil;
@@ -110,7 +111,7 @@ public class BannerController {
         order.setStatus(ao.getMainBannerStatus());
         order.setStartTime(ao.getStartTime());
         order.setEndTime(ao.getEndTime());
-        order.setPageParamInfo(ao.getPageParamInfo());
+        order.setPageParamInfo(new PageParamInfo(1,5));
         LoginBannerListPageQueryResult result = bannerFacadeClient.loginBannerListPageQuery(order);
 
         return new JsonResult(result);
