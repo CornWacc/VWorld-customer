@@ -11,7 +11,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Runner(port = "9250")
 @EnableSwagger2
-@EnableAutoConfiguration(exclude = {org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration.class,DataSourceAutoConfiguration.class, DataSourceProperties.class})
+//@EnableAutoConfiguration(exclude = {org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration.class,DataSourceAutoConfiguration.class, DataSourceProperties.class})
 public class Main {
 
     public static void main(String[] args) {

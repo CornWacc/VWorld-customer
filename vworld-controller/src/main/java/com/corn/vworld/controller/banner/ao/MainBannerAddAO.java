@@ -1,7 +1,6 @@
 package com.corn.vworld.controller.banner.ao;
 
 import com.corn.boot.base.Base;
-import com.corn.vworld.common.util.ConstantParamsGetUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
