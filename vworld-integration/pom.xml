@@ -12,14 +12,17 @@
     <artifactId>vworld-integration</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.corn.vworld</groupId>
+            <artifactId>vworld-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
         <dependency>
             <groupId>com.corn.vworld</groupId>
             <artifactId>vworld-facade</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
-
     </dependencies>
 
 </project>

@@ -5,7 +5,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>vworld-assamble</module>
-        <module>vworld-service</module>
         <module>vworld-common</module>
         <module>vworld-controller</module>
         <module>vworld-integration</module>

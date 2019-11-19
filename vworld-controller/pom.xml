@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.corn.vworld</groupId>
-            <artifactId>vworld-service</artifactId>
+            <artifactId>vworld-integration</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
